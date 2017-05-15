@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <ul class="nav nav-tabs nav-justified">
+        <li><a href="/">Home</a></li>
+        <li><a href="/new">New Post</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+        <h2><%= message.title %></h2>
+        <p><em><%= message.date %></em></p>
+        <%= message.message %>
+
+        <br><br>
+        <div class="form-group">
+          <a href="/" class="btn btn-sm btn-default">Back</a>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <ul class="nav nav-tabs nav-justified">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>Create a new post</h1>
+      <form action="/new" method="POST">
+        <div class="form-group">
+          <input type="text" placeholder="Title" name="title">
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" cols="50" rows="12" placeholder="Your message.." name="message"></textarea>
+        </div>
+        <div class="form-group">
+          <a href="/" class="btn btn-sm btn-default">Back</a>
+          <button type="submit" class="btn btn-sm btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
