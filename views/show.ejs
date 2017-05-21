@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body>
+<% include partials/header %>
 
-    <nav class="navbar">
-      <ul class="nav nav-tabs nav-justified">
-        <li><a href="/">Home</a></li>
-        <li><a href="/new">New Post</a></li>
-      </ul>
-    </nav>
+    <div class="ui one cards">
+        <div class="olive card">
+            <div class="ui sizer vertical segment">
+              <div class="ui large header centered"><%= message.title %></div>
+            </div>
 
-    <div class="container">
-        <h2><%= message.title %></h2>
-        <p><em><%= message.date.toDateString() %></em></p>
-        <%= message.message %>
+            <div class="content">
+              <p><%= message.message %></p>
+              <p><em><%= message.date.toDateString() %></em></p>
 
-        <br><br>
-        <div class="form-group">
-          <a href="/" class="btn btn-sm btn-default">Back</a>
-        </div>
+              <div class="ui buttons">
+                <a href="/board/<%= message._id %>/edit">
+                  <button class="ui button basic"><i class="icon edit"></i>Edit</button>
+                </a>
+
+                <form action="/board/<%= message._id %>?_method=DELETE" method="POST">
+                  <button class="ui button basic"><i class="icon red delete"></i>Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
     </div>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
-</html>
+<% include partials/footer %>

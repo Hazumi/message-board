@@ -1,42 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body>
+<% include partials/header %>
 
-    <nav class="navbar">
-      <ul class="nav nav-tabs nav-justified">
-        <li><a href="/">Home</a></li>
-        <li><a href="/new">New Post</a></li>
-      </ul>
-    </nav>
+    <div class="ui two cards">
+      <% message.forEach(function(message) { %>
+          <div class="olive card">
+              <div class="ui sizer vertical segment">
+                <div class="ui large header centered"><%= message.title %></div>
+              </div>
 
-    <nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li class="active"><a href="/">1</a></li>
-    <li><a href="/page2">2</a></li>
-    <li><a href="/page3">3</a></li>
-    <li><a href="/page4">4</a></li>
-    <li><a href="/page5">5</li>
-  </ul>
-</nav>
+              <div class="content">
+                <p><%= message.message.substring(0, 120) %>...</p>
+                <p><em><%= message.date.toDateString() %></em></p>
+              </div>
 
-    <div class="container">
-      <ul>
-        <% messages.forEach(function(msg) { %>
-          <li><h3><a href="/<%= msg._id %>"><%= msg.title %></a></h3></li>
-          <li><%= msg.message.substring(0, 310) + "..." %></li>
-        <% }); %>
-      </ul>
+              <a href="/board/<%= message._id %>">
+                <div class="ui bottom attached button">
+                  <i class="comments outline icon"></i>
+                  View More
+                </div>
+              </a>
+          </div>
+      <% }); %>
 
-      <div>
-        Footer
-      </div>
+
     </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
-</html>
+
+<% include partials/footer %>
